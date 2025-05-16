@@ -1,0 +1,122 @@
+/* Import custom styles */
+@import './styles/custom.css';
+@import './styles/typography.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-cream text-brown min-h-screen;
+  font-family: var(--font-body);
+}
+
+.handwritten {
+  @apply font-handwritten;
+}
+
+/* Search animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Marquee animation for promotional banner */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50%)); }
+}
+
+.animate-carousel {
+  animation: carousel linear infinite;
+  display: flex;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.carousel-item {
+  padding: 0 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-out {
+  animation: slideOut 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid rgba(139, 90, 43, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid #8B5A2B;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}

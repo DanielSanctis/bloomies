@@ -1,0 +1,520 @@
+/* Custom CSS for Bloomies */
+
+/* Import elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+/* Global style overrides */
+* {
+  border-radius: 0 !important;
+}
+
+/* Custom Properties */
+:root {
+  /* Fonts */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-serif: 'Merriweather', serif;
+  --font-handwritten: 'Caveat', cursive;
+
+  /* Base colors */
+  --background: hsl(60, 30%, 96%);
+  --foreground: hsl(30, 25%, 18%);
+
+  /* Primary: Tan/Beige */
+  --primary: hsl(34, 37%, 67%);
+  --primary-light: hsl(34, 37%, 83%);
+  --primary-dark: hsl(34, 37%, 58%);
+  --primary-foreground: hsl(0, 0%, 100%);
+
+  /* Secondary: Soft Pink */
+  --secondary: hsl(348, 29%, 75%);
+  --secondary-light: hsl(348, 29%, 88%);
+  --secondary-dark: hsl(348, 29%, 62%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+
+  /* Accent: Gold */
+  --accent: hsl(51, 100%, 50%);
+  --accent-light: hsl(51, 100%, 70%);
+  --accent-dark: hsl(51, 100%, 40%);
+  --accent-foreground: hsl(30, 25%, 18%);
+
+  /* Neutral Colors */
+  --neutral-cream: hsl(60, 33%, 94%);
+  --neutral-beige: hsl(33, 28%, 86%);
+  --neutral-brown: hsl(15, 28%, 28%);
+
+  /* Legacy color names for backward compatibility */
+  --color-cream: var(--neutral-cream);
+  --color-cream-light: hsl(60, 33%, 97%);
+  --color-beige: var(--neutral-beige);
+  --color-beige-dark: hsl(33, 28%, 76%);
+  --color-brown: var(--neutral-brown);
+  --color-brown-light: hsl(15, 28%, 38%);
+  --color-brown-dark: hsl(15, 28%, 22%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Elegant button styles */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: width var(--transition-normal);
+  z-index: 1;
+}
+
+.btn:hover::after {
+  width: 100%;
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Elegant input styles */
+.input-elegant {
+  border: 1px solid var(--color-beige);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-elegant:focus {
+  border-color: var(--color-brown-light);
+  box-shadow: 0 0 0 2px rgba(139, 90, 43, 0.2);
+  outline: none;
+}
+
+/* Navbar enhancements */
+.navbar-elegant {
+  background-color: rgba(249, 243, 229, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Logo animation */
+.logo-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-hover::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-brown);
+  transition: width var(--transition-normal);
+}
+
+.logo-hover:hover::after {
+  width: 100%;
+}
+
+/* Nav link animations */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-brown);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Product card enhancements */
+.product-card {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4 / 5;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image-container {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Wishlist heart animation */
+.heart-icon {
+  transition: transform var(--transition-fast);
+}
+
+.heart-icon:hover {
+  transform: scale(1.15);
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+/* Hero section enhancements */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(232, 218, 203, 0.8), rgba(232, 218, 203, 0.4));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Footer enhancements */
+.footer-link {
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--color-brown-light);
+  transform: translateX(3px);
+}
+
+/* Social icon hover effects */
+.social-icon {
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: var(--color-brown-light);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-beige);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-beige-dark);
+}
+
+/* Action buttons container */
+.action-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  width: 120px;
+}
+
+/* Action button base styles */
+.action-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Action button icon styles */
+.action-button svg {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  transition: right 0.2s ease;
+}
+
+/* Center icon when not hovered */
+.action-button:not(:hover) svg {
+  position: static;
+}
+
+/* Action button hover styles */
+.action-button:hover {
+  width: 120px;
+  justify-content: flex-end;
+}
+
+/* Action button label styles */
+.action-button .label {
+  position: absolute;
+  opacity: 0;
+  left: 10px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.action-button:hover .label {
+  opacity: 1;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(139, 90, 43, 0.2);
+  border-top-color: var(--color-brown);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-up animation */
+.slide-up {
+  animation: slideUp var(--transition-normal);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category card hover effect */
+.category-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card-image {
+  transition: transform var(--transition-slow);
+}
+
+.category-card:hover .category-card-image {
+  transform: scale(1.05);
+}
+
+.category-card-overlay {
+  background: linear-gradient(to top, rgba(139, 90, 43, 0.8), transparent);
+  transition: opacity var(--transition-normal);
+}
+
+.category-card:hover .category-card-overlay {
+  opacity: 0.9;
+}
+
+/* Custom checkbox */
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: var(--color-cream-light);
+  border: 1px solid var(--color-beige);
+  transition: all var(--transition-fast);
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+  background-color: var(--color-beige);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--color-brown);
+  border-color: var(--color-brown);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Component-Level Overrides */
+.product-card,
+.action-button,
+.dropdown,
+.badge,
+.modal,
+input,
+select,
+button,
+.btn,
+.card,
+.alert {
+  border-radius: 0 !important;
+}
+
+/* Product aspect ratio variations */
+.aspect-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-landscape {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* Original list view heights */
+.list-view-height {
+  height: 64px;
+}
+
+.compact-list-view-height {
+  height: 48px;
+}
